@@ -1,1 +1,60 @@
+#**Problem Statement1:** Employee Salary Calculator
+
+name=input("Enter employee name: ")
+salary=int(input("Enter employee salary: "))
+def calculate_hra():
+  hra=salary*0.2
+  return hra
+
+def calculate_da():
+  da=salary*0.1
+  return da
+
+def calculate_net_salary():
+  har=calculate_hra()
+  da=calculate_da()
+  net=har+da+salary
+  return net
+print(calculate_net_salary())
+
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+#**Problem Statement2:** Student Grade Management System
+
+def calculate_total(marks):
+    return sum(marks)
+
+def calculate_percentage(total, num_subjects):
+    return total / num_subjects
+
+def assign_grade(percentage):
+    if percentage >= 90:
+        return "A"
+    elif percentage >= 75:
+        return "B"
+    elif percentage >= 60:
+        return "C"
+    elif percentage >= 40:
+        return "D"
+    else:
+        return "F"
+
+marks = []
+
+for i in range(1, 6):
+    mark = float(input(f"Enter marks for Subject {i}: "))
+    marks.append(mark)
+
+total = calculate_total(marks)
+percentage = calculate_percentage(total, len(marks))
+grade = assign_grade(percentage)
+
+print("Result: ")
+print("Total Marks:", total)
+print("Percentage:", percentage, "%")
+print("Grade:", grade)
 
