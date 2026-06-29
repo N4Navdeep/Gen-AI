@@ -1,0 +1,89 @@
+Q1. Create a CSV file containing product names and prices. Read the data using Pandas. Use NumPy to calculate the average price. Write a function to identify products priced above the average and display them.
+
+
+Concepts Used:
+-  Pandas DataFrame
+- NumPy
+- Functions
+- Control Statements
+"""
+
+import pandas as pd
+import numpy as np
+
+data = {
+    "Product_Name": ["TV", "AC", "Tablet", "Phone", "Printer"],
+    "Price": [55000, 80000, 24000, 30000, 50000 ]
+}
+
+df = pd.DataFrame(data)
+df.to_csv("Products_detail.csv")
+
+df = pd.read_csv("Products_detail.csv")
+df
+
+Average_price = np.average(df["Price"])
+print("Average Price:", Average_price)
+
+def above_average(df, average_price):
+  print("Product Above Average Price: ")
+  for i in range(len(df)):
+      if df["Price"][i] > average_price:
+          print(df["Product_Name"][i], "-", df["Price"][i])
+
+above_average(df, Average_price)
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+Q2. Read daily temperature data from a CSV file using Pandas. Use NumPy to calculate the highest, lowest, and average temperatures. Write functions to classify each day as:
+- Cold (<20°C)
+- Moderate (20–30°C)
+- Hot (>30°C)
+
+Display the category for each day.
+Concepts Used:
+- Pandas
+- NumPy
+- Functions
+- if-elif-else
+"""
+
+import pandas as pd
+import numpy as np
+
+data = {
+    "Day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "Temperature": [25, 28, 32, 18, 29]
+}
+
+df = pd.DataFrame(data)
+df.to_csv("Temperature_data.csv")
+
+df = pd.read_csv("Temperature_data.csv")
+df
+
+highest = np.max(df["Temperature"])
+print("Highest Temperature:", highest)
+lowest = np.min(df["Temperature"])
+print("Lowest Temperature:", lowest)
+average = np.mean(df["Temperature"])
+print("Average Temperature:", average)
+
+def classify_temp(df):
+
+  for i in range(len(df)):
+    temp = df['Temperature'][i]
+
+    if temp < 20:
+      category = "Cold"
+    elif temp <= 30:
+      category = "Moderate"
+    else:
+      category = "Hot"
+
+    print(df['Day'][i], "-",temp, "-", category)
+classify_temp(df)
