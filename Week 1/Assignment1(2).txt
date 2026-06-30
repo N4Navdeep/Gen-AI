@@ -1,0 +1,120 @@
+#**Problem Statement:** Student Performance Management System
+
+def grade(p):
+    if p >= 90:
+        return "A"
+    elif p >= 75:
+        return "B"
+    elif p >= 60:
+        return "C"
+    elif p >= 40:
+        return "D"
+    return "F"
+
+students = {}
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    roll = input("Roll No: ")
+    name = input("Name: ")
+
+    marks = []
+    for j in range(5):
+        marks.append(int(input(f"Subject {j+1}: ")))
+
+    total = sum(marks)
+    per = total / 5
+
+    students[roll] = {
+        "name": name,
+        "marks": marks,
+        "percentage": per,
+        "grade": grade(per)
+    }
+
+print("\nStudent Records")
+for roll, data in students.items():
+    print(roll, data["name"], data["percentage"], "%", data["grade"])
+
+topper = max(students, key=lambda x: students[x]["percentage"])
+
+print("\nTopper:")
+print(students[topper]["name"], "-", students[topper]["percentage"], "%")
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+**Q1. Create a program that reads student marks from a file (filename.txt). Display the names of students who have passed (marks > 45) and those who have failed.**
+
+file=open("/content/drive/MyDrive/GenAi/marks.txt","r")
+
+passed = 0
+failed = 0
+
+for i in file:
+  name, marks=i.strip().split(",")
+  marks=int(marks)
+
+  if marks>45:
+    print(name,"Passed")
+    passed+= 1
+  else:
+    print(name,"Failed")
+    failed+= 1
+file.close()
+print("Total Passed:",passed)
+print("Total Failed:",failed)
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+**Q2. A file (salary.txt) contains employee names and salaries. Read the file and display only those employees whose salary is greater than ₹50,000.** 
+
+f = open("/content/drive/MyDrive/GenAi/Salary.txt", "r")
+
+count = 0
+
+for i in f:
+    name, salary = i.split()
+
+    if int(salary) > 50000:
+        print(name)
+        count = count + 1
+
+print("Total Employees =", count)
+
+f.close()
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+**Q3. A file (attendance.txt) contains the attendance status of students
+(Present/Absent).**
+
+f = open("/content/drive/MyDrive/GenAi/Students.txt", "r")
+
+present = 0
+absent = 0
+
+for i in f:
+    name, status = i.split()
+
+    if status == "Absent":
+        print("Absent: ", name)
+        absent = absent + 1
+    else:
+        present = present + 1
+
+print("Total Present =", present)
+print("Total Absent =", absent)
+
+f.close()
