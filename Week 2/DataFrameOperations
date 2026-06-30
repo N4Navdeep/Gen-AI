@@ -1,0 +1,215 @@
+# Import Pandas
+
+import pandas as pd
+
+
+-----------------------------------
+
+# Create a List
+
+a=[32,4,36,7,43]
+
+
+
+-----------------------------------
+
+# Convert List to Series
+
+sr=pd.Series(a)
+
+
+
+
+-----------------------------------
+
+# Print Series
+
+print(sr)
+
+
+
+
+-----------------------------------
+
+# Create Dictionary
+
+weather={
+    "temp":[32,45,30,40,31],
+    "humidity":[80,60,78,21,23],
+    "windspeed":[6,7,2,7,4],
+    "event":["rain","sunny","snow","snow","rain"]
+}
+
+# Stores weather data.
+
+
+-----------------------------------
+
+# Create DataFrame
+
+df=pd.DataFrame(weather)
+
+df
+
+# Converts the dictionary into a DataFrame.
+
+
+-----------------------------------
+
+# Display First 2 Rows
+
+df.head(2)
+
+
+
+
+-----------------------------------
+
+# Display Last 2 Rows
+
+df.tail(2)
+
+
+
+
+-----------------------------------
+
+# Select Columns
+
+df[["humidity","windspeed"]]
+
+# Displays only selected columns.
+
+
+-----------------------------------
+
+# Select Rows and Columns using loc
+
+df.loc[0:2,["humidity","windspeed"]]
+
+# Selects rows by label.
+
+
+-----------------------------------
+
+# Select Rows and Columns using iloc
+
+df.iloc[:4,2:]
+
+# Selects rows and columns by index.
+
+
+-----------------------------------
+
+# Find Unique Values
+
+df.iloc[:,-1].unique()
+
+
+
+
+-----------------------------------
+
+# Filter Data
+
+df[df["temp"]>30]
+
+# Displays rows where temperature is greater than 30.
+
+
+-----------------------------------
+
+# Import NumPy
+
+import numpy as np
+
+
+
+-----------------------------------
+
+# Create Data with Missing Values
+
+weather={
+    "temp":[32,45,30,40,31,90],
+    "humidity":[80,60,78,21,23,np.nan],
+    "windspeed":[6,7,2,7,4,np.nan],
+    "event":["rain","sunny","snow","snow","rain",np.nan]
+}
+
+
+
+
+-----------------------------------
+
+# Create DataFrame
+
+df1=pd.DataFrame(weather)
+
+print(df1)
+
+
+
+
+-----------------------------------
+
+# Check Missing Values
+
+df1.isnull()
+
+
+
+
+-----------------------------------
+
+# Count Missing Values
+
+df1.isnull().sum()
+
+
+
+
+-----------------------------------
+
+# Replace Missing Values
+
+df1.fillna(0)
+
+
+
+
+-----------------------------------
+
+# Drop Columns with Missing Values
+
+df1.dropna(axis=1)
+
+
+
+
+-----------------------------------
+
+# Drop Rows with Missing Values
+
+df.dropna()
+
+
+
+
+-----------------------------------
+
+# Remove Missing Rows Permanently
+
+df1.dropna(axis=0,inplace=True)
+
+# Deletes rows with missing values permanently.
+
+
+-----------------------------------
+
+# Convert Text to Numbers
+
+df1["event"]=df1["event"].map({"sunny":0,"rain":1,"snow":2})
+
+df1
+
+# Converts text values into numeric values.
