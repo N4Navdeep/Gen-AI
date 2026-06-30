@@ -1,0 +1,117 @@
+==============================
+	MATPLOTLIB
+==============================
+
+# Import Matplotlib
+
+import matplotlib.pyplot as plt
+
+-----------------------------------
+
+# Simple Line Plot
+
+import numpy as np
+
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 250])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+
+-----------------------------------
+
+# Line Plot with Dash-Dot and Circle Marker
+
+xpoints = np.array([1, 8])
+ypoints = np.array([3, 10])
+
+plt.plot(xpoints, ypoints, '-.o')
+plt.show()
+
+-----------------------------------
+
+# Line Plot with Circle Marker
+
+plt.plot(xpoints, ypoints, '-o')
+plt.show()
+
+-----------------------------------
+
+# Line Plot with Plus Marker
+
+plt.plot(xpoints, ypoints, '-+')
+plt.show()
+
+-----------------------------------
+
+# Plot Multiple Points
+
+xpoints = np.array([1, 2, 6, 8])
+ypoints = np.array([3, 8, 1, 10])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+
+-----------------------------------
+
+# Plot Using Only Y Values
+
+ypoints = np.array([3, 8, 1, 10, 5, 7])
+
+plt.plot(ypoints)
+plt.show()
+
+-----------------------------------
+
+# Marker Example
+
+ypoints = np.array([3, 8, 1, 10])
+xpoints = np.array([2, 4, 6, 8])
+
+plt.plot(ypoints, xpoints, marker='o')
+plt.show()
+
+-----------------------------------
+
+# Marker, Line Style and Color
+
+plt.plot(ypoints, 'o:r')
+plt.show()
+
+-----------------------------------
+
+# Marker Size and Colors
+
+plt.plot(ypoints, marker='o', ms=20, mec='green', mfc='r')
+plt.show()
+
+# Changes marker size, edge color and face color.
+
+-----------------------------------
+
+# Dotted Line Style
+
+plt.plot(ypoints, linestyle='dotted')
+plt.show()
+
+-----------------------------------
+
+# Line Width
+
+plt.plot(ypoints, linewidth='10')
+plt.show()
+
+# Increases the thickness of the line.
+
+-----------------------------------
+
+# Multiple Line Graphs
+
+y1 = np.array([3, 8, 1, 10, 5, 7])
+y2 = np.array([6, 2, 7, 11, 7, 13])
+
+plt.plot(y1)
+plt.plot(y2)
+plt.show()
+
+# Displays two line graphs on the same plot.
