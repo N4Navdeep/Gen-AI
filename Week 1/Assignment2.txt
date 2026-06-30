@@ -1,0 +1,59 @@
+**Create a CSV file containing product names and prices. Read the data using
+Pandas. Use NumPy to calculate the average price. Write a function to identify
+products priced above the average and display them.**
+
+#import libraries
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("/content/drive/MyDrive/GenAi/products_dataset.csv")
+df.columns = df.columns.str.strip()
+df
+
+avg_price = np.mean(df["Price"])
+print("Average price:", avg_price)
+
+def above_average_products(data, avg):
+    print("\nProducts priced above average:")
+    for index, row in data.iterrows():
+        if row["Price"] > avg:
+            print(row["Product Name"],"-", row["Price"])
+above_average_products(df, avg_price)
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+**Read daily temperature data from a CSV file using Pandas. Use NumPy to
+calculate the highest, lowest, and average temperatures.**
+
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("/content/drive/MyDrive/GenAi/daily_temperature_dataset.csv")
+df.columns = df.columns.str.strip()
+df
+
+highest_temp = np.max(df["Temperature (°C)"])
+lowest_temp = np.min(df["Temperature (°C)"])
+avg_temp = np.mean(df["Temperature (°C)"])
+
+print("Highest temperature:", highest_temp)
+print("Lowest temperature:", lowest_temp)
+print("Average temperature:", avg_temp)
+
+def classify_temp(temp):
+    if temp < 20:
+       return "Cold"
+    elif temp <= 30:
+         return "Moderate"
+    else:
+         return "Hot"
+for temp in df["Temperature (°C)"]:
+  print(temp, classify_temp(temp))
+
+print("\nCategory for each day:")
+for index, row in df.iterrows():
+    print(row["Day"], "-", classify_temp(row["Temperature (°C)"]))
