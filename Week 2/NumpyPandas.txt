@@ -1,0 +1,60 @@
+NUMPY & PANDAS
+Perform basic operations using Python, NumPy and Pandas.
+
+Work Done in Code:
+
+1. Created a Python list containing values:
+   - Ppl = ['b','b','g','b','g']
+   - Sorted the list using sort().
+   - Displayed the sorted list.
+
+2. Import Libraries:
+   - NumPy as np
+   - Pandas as pd
+
+3. NumPy Operations:
+   - Created a Python list: [10, 20, 30]
+   - Converted the list into a NumPy array.
+   - Added 10 to every element using vectorized operation.
+   - Calculated:
+       • Sum
+       • Mean
+       • Minimum value
+       • Maximum value
+		print(df['Marks'].mean())
+		print(df['Marks'].max())
+		print(df['Marks'].min())
+
+4. Pandas DataFrame Creation:
+   - Created a dictionary with Name and Marks.
+   - Converted the dictionary into a DataFrame.
+
+5. Created another DataFrame using separate lists:
+   - Name list
+   - Marks list
+
+6. Display the first five records using:
+   - df.head()
+
+7. Display the last five records using:
+   - df.tail()
+
+8. Display only the Name column.
+   - print(df['Name'])
+
+9. Display the Name column (good visual) using display().
+   - display(df['Name'])
+
+10. Performed statistical operations on Marks:
+    - Average Marks
+    - Maximum Marks
+    - Minimum Marks
+
+11. Applied a condition:
+    - Checked which students scored more than 70 marks.
+		print(df['Marks']>70)
+
+12. Filtered the DataFrame:
+    - Displayed students whose marks are greater than 60.
+		print(df[df['Marks']>60])
+
