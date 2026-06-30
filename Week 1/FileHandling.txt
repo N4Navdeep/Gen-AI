@@ -1,0 +1,100 @@
+file=open("/content/drive/MyDrive/GenAi/marks.txt","r")
+
+passed = 0
+failed = 0
+
+for i in file:
+  name, marks=i.strip().split(",")
+  marks=int(marks)
+
+  if marks>45:
+    print(name,"Passed")
+    passed+= 1
+  else:
+    print(name,"Failed")
+    failed+= 1
+file.close()
+print("Total Passed:",passed)
+print("Total Failed:",failed)
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+f = open("/content/drive/MyDrive/GenAi/Salary.txt", "r")
+
+count = 0
+
+for i in f:
+    name, salary = i.split()
+
+    if int(salary) > 50000:
+        print(name)
+        count = count + 1
+
+print("Total Employees =", count)
+
+f.close()
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+f = open("/content/drive/MyDrive/GenAi/Students.txt", "r")
+
+present = 0
+absent = 0
+
+for i in f:
+    name, status = i.split()
+
+    if status == "Absent":
+        print("Absent: ", name)
+        absent = absent + 1
+    else:
+        present = present + 1
+
+print("Total Present =", present)
+print("Total Absent =", absent)
+
+f.close()
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+
+def calc_total(marks):
+  return sum(marks)
+def calc_percentage(total,number_subjects):
+  return total/number_subjects
+def assign_grade(percentage):
+  if percentage >= 90:
+    print ("A")
+  elif percentage >= 75:
+    print ("B")
+  elif percentage >= 60:
+    print ("C")
+  elif percentage >= 40:
+    print ("D")
+  else:
+    print ("E")
+
+marks = []
+for i in range(5):
+  mark = float(input(f"Enter marks for Subject {i+1}: "))
+  marks.append(mark)
+
+total = calc_total(marks)
+print(total)
+
+Percentage = calc_percentage(total ,5)
+print(Percentage,"%")
+
+final= assign_grade(Percentage)
+print(final)
